@@ -26,10 +26,6 @@ Telexio isn't just a tool; it's a statement. Our branding reflects the clarity, 
   <table border="0">
     <tr>
       <td align="center">
-        <img src="LOGO (1).png" width="300" style="border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);" />
-        <br /><b>Modern Variant 1</b>
-      </td>
-      <td align="center">
         <img src="LOGO (2).png" width="300" style="border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);" />
         <br /><b>Modern Variant 2</b>
       </td>
@@ -59,19 +55,7 @@ Telexio isn't just a tool; it's a statement. Our branding reflects the clarity, 
 
 ---
 
-## 📸 Immersive Screenshots
 
-<div align="center">
-  <img src="screenshots/DashboardWithFiles.png" width="90%" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
-  <p><i>The high-fidelity main dashboard in Deep Dark mode.</i></p>
-</div>
-
-<div align="center">
-  <img src="screenshots/ImagePreview.png" width="90%" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
-  <p><i>Full-screen immersive file preview with high-res rendering.</i></p>
-</div>
-
----
 
 ## 🏗️ Technical Architecture
 
