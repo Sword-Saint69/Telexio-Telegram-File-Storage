@@ -1,0 +1,283 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Inconsolata:wght@400;700&display=swap');
+
+/* Refined Clean Design System */
+@theme {
+  --color-telegram-bg: #f8fafc;
+  --color-telegram-surface: #ffffff;
+  --color-telegram-primary: #3b82f6; /* Clean blue */
+  --color-telegram-secondary: #8b5cf6;
+  --color-telegram-text: #0f172a;
+  --color-telegram-subtext: #64748b;
+  --color-telegram-border: #e2e8f0;
+  --color-telegram-hover: #f1f5f9;
+  --color-telegram-surface: #ffffff;
+
+  --font-size-base: 14px;
+
+  --font-display: "Poppins", sans-serif;
+  --font-sans: "Roboto", sans-serif;
+  --font-mono: "Inconsolata", monospace;
+
+  --color-telegram-bg-rgb: 248, 250, 252;
+}
+
+/* Dark Mode Overrides (Refined Dark) */
+:root.dark {
+  --color-telegram-bg: #020617;
+  --color-telegram-surface: #0f172a;
+  --color-telegram-primary: #3b82f6;
+  --color-telegram-secondary: #8b5cf6;
+  --color-telegram-text: #f8fafc;
+  --color-telegram-subtext: #94a3b8;
+  --color-telegram-border: #1e293b;
+  --color-telegram-surface: #0f172a;
+  --color-telegram-hover: #1e293b;
+  --color-telegram-bg-rgb: 2, 6, 23;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: var(--color-telegram-bg);
+  color: var(--color-telegram-text);
+  line-height: 1.6;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* Clean Borders & Elevation */
+.clean-border {
+  border: 1px solid var(--color-telegram-border);
+}
+
+.clean-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.clean-card {
+  background: var(--color-telegram-surface);
+  border: 1px solid var(--color-telegram-border);
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.clean-card:hover {
+  border-color: var(--color-telegram-primary);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Glassmorphism Lite & Ambient Background */
+@keyframes blob-bounce {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.ambient-blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: -1;
+  border-radius: 50%;
+  animation: blob-bounce 20s infinite alternate ease-in-out;
+}
+
+.auth-gradient {
+  background: var(--color-telegram-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+:root.dark .auth-glass {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Liquid-Glass Modals & Overlays */
+.liquid-glass {
+  background: rgba(var(--color-telegram-surface-rgb, 255, 255, 255), 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(var(--color-telegram-border-rgb, 226, 232, 240), 0.3);
+}
+
+.dark .liquid-glass {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blur-overlay {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Compact Mode Utilities */
+.compact-mode .file-card-info {
+  padding: 0.5rem !important;
+}
+
+.compact-mode .file-list-item {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.compact-mode .sidebar-item {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Floating Label Styles */
+.floating-label-group {
+  position: relative;
+}
+
+.floating-label-group label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  padding: 0 0.25rem;
+  color: var(--color-telegram-subtext);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.floating-label-group input:focus + label,
+.floating-label-group input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.75rem;
+  color: var(--color-telegram-primary);
+  background: var(--color-telegram-surface);
+  font-weight: 600;
+}
+
+/* Custom Scrollbar (Subtle) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-telegram-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-telegram-subtext);
+}
+
+/* Command Palette (Telexio Style) */
+.command-palette-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.command-palette-container {
+  background: var(--color-telegram-surface);
+  border: 1px solid var(--color-telegram-border);
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+  width: 90%;
+  margin-top: 15vh;
+}
+
+/* Storage Meter (Clean) */
+.storage-meter-bar {
+  height: 6px;
+  background: var(--color-telegram-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.storage-meter-fill {
+  height: 100%;
+  background: var(--color-telegram-primary);
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Deep Sea Dark Mode Refinements */
+:root.dark {
+  --color-telegram-bg: #000000;
+  --color-telegram-surface: #0a0a0a;
+  --color-telegram-border: #1a1a1a;
+  --color-telegram-primary: #3b82f6;
+  --color-telegram-text: #f8fafc;
+  --color-telegram-subtext: #94a3b8;
+  --color-telegram-hover: #111111;
+}
+
+/* Activity Center Panel */
+.activity-panel {
+  width: 320px;
+  background: var(--color-telegram-surface);
+  border-left: 1px solid var(--color-telegram-border);
+  box-shadow: -10px 0 30px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation Utilities */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Progress (Clean) */
+@keyframes progress-loading {
+  0% { width: 0%; left: 0%; }
+  50% { width: 100%; left: 0%; }
+  100% { width: 0%; left: 100%; }
+}
+
+.animate-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--color-telegram-primary);
+  animation: progress-loading 1.5s infinite ease-in-out;
+}
+
+/* Typography Overrides */
+.text-display { font-family: var(--font-display); }
+.text-mono { font-family: var(--font-mono); }
+.tracking-clean { letter-spacing: 0.025em; }
